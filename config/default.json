@@ -1,0 +1,21 @@
+{
+    "mongo": {
+        "hostname": "localhost",
+        "port": 27017,
+        "db": "eq",
+        "collections": [
+            "battles"
+        ]
+    },
+    "timeouts": {
+        "nlp": 1000
+    },
+    "socketServer": {
+        "protocol": "http",
+        "port": 8899,
+        "pingInterval": 10000,
+        "pingTimeout": 5000,
+        "cookie": false,
+        "transports": ["polling","websocket"]
+    }
+}
