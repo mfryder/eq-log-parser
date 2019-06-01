@@ -1,0 +1,23 @@
+{
+  "name": "eq-log-parser",
+  "version": "1.0.0",
+  "description": "Project for parsing EQ logs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfryder/eq-log-parser.git"
+  },
+  "keywords": [
+    "eq",
+    "node"
+  ],
+  "author": "Michael F. Ryder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mfryder/eq-log-parser/issues"
+  },
+  "homepage": "https://github.com/mfryder/eq-log-parser#readme"
+}
