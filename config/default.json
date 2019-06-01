@@ -2,7 +2,7 @@
     "mongo": {
         "hostname": "localhost",
         "port": 27017,
-        "db": "eq",
+        "db": "eq-log-parse",
         "collections": [
             "battles"
         ]
