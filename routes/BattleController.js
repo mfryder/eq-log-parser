@@ -1,21 +1,36 @@
 const express = require('express');
 const router = express.Router();
-const BattleCrudServiceMongo = require('../lib/RecordsCollectionService');
-const ErrorMessageFactory = require("./errors/ErrorFactory");
+const BattleCrudServiceMongo = require('../lib/service/crud/mongo/BattleCrudServiceMongo');
+const EqLogFileParser = require('../lib/service/parser/EqLogFileParser');
+const ErrorMessageFactory = require("../lib/errors/ErrorFactory");
 const logger = require('winston');
 
 //express setting the route path information and what function will be called
 router.get('/all', getAllBattleRecords);
+
+router.get('/parseFiles', parseBattleFiles); // to be automated
 
 function getAllBattleRecords(req, res, next){                                         //node contains the request object, response object, and the next in chain
     BattleCrudServiceMongo.findAll()
         .then(function success(results){
             res.send(results);                                                  //node sending response object
         })
-        .catch(handleErrors(err));
+        .catch(function error(err){
+            handleErrors(err, res);
+        });
 }
 
-function handleErrors(err){
+function parseBattleFiles(req, res, next){
+    EqLogFileParser.parse()
+        .then(function success(results){
+            res.send(results);
+        })
+        .catch(function error(err){
+            handleErrors(err, res);
+        });
+}
+
+function handleErrors(err, res){
     let errMsg = ErrorMessageFactory.createError(err);
     errMsg.setStack(err.stack);
     errMsg.setMessage(err.message);
