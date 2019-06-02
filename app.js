@@ -17,7 +17,7 @@ const config = require('config');                       //configuartion module. 
 const mongoose = require('mongoose');                   //mongo module for handling connections with mongo server (third party)
 
 const app = express();                                  
-const socketServer = require("./lib/socket/socketServer");   
+//const socketServer = require("./lib/socket/socketServer");   
 
 mongoose.connect('mongodb://'+ config.get('mongo.hostname') + ':'+config.get('mongo.port')+ '/' + config.get('mongo.db'));  //mongoose
 let db = mongoose.connection;                                          //links in connection with mongo
@@ -33,7 +33,7 @@ db.once('open', function() {
     app.use(express.static(path.join(__dirname, 'dist')));
     
     //setting up routes and tying them to express   
-    const battles = require('./routes/battles');
+    const battles = require('./routes/BattleController');
     //const newsProfile = require('./routes/profile');
     //const records = require('./routes/records');
 
@@ -44,7 +44,7 @@ db.once('open', function() {
     
     var server = http.createServer(app);                            //Creates the node server
     server.listen(3000);                                            //tells the server to listen on that port
-    socketServer.initializeServer();
+    //socketServer.initializeServer();
 });
 
 module.exports = app;

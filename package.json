@@ -2,10 +2,10 @@
   "name": "eq-log-parser",
   "version": "1.0.0",
   "description": "Project for parsing EQ logs",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "test",
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
