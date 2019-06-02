@@ -17,5 +17,9 @@
         "pingTimeout": 5000,
         "cookie": false,
         "transports": ["polling","websocket"]
+    },
+    "fileParser": {
+        "inputPath": "./inputFiles",
+        "outputPath": "./outputFiles"
     }
 }
