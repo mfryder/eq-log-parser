@@ -10,7 +10,7 @@
 const express = require('express');                     //express module (third party)
 const path = require('path');                           //used for hosting webpage files from dist into express (third party)
 const favicon = require('serve-favicon');               //webpage facivon (third party)
-const winston = require('winston');                      //logging module (third party)
+const logger = require('./config/logger');                      //logging module (third party)
 const bodyParser = require('body-parser');              //module to allow json body to be parsed (mainly used in middleware) (third party)
 const http = require('http');                           //node specific module (used for http based module services)
 const config = require('config');                       //configuartion module. Allows for adding in properties in json format. Can have overrides (third party)
@@ -18,20 +18,6 @@ const mongoose = require('mongoose');                   //mongo module for handl
 
 const app = express();                                  
 //const socketServer = require("./lib/socket/socketServer");   
-
-const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.json(),
-    defaultMeta: { service: 'user-service' },
-    transports: [
-      //
-      // - Write to all logs with level `info` and below to `combined.log` 
-      // - Write all logs error (and below) to `error.log`.
-      //
-      new winston.transports.File({ filename: 'error.log', level: 'error' }),
-      new winston.transports.File({ filename: 'combined.log' })
-    ]
-});
 
 mongoose.connect('mongodb://'+ config.get('mongo.hostname') + ':'+config.get('mongo.port')+ '/' + config.get('mongo.db'));  //mongoose
 let db = mongoose.connection;                                          //links in connection with mongo
