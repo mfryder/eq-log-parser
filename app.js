@@ -34,11 +34,12 @@ db.once('open', function() {
     
     //setting up routes and tying them to express   
     const battles = require('./routes/BattleController');
+    const eqZones = require('./routes/EqZoneController');
     //const newsProfile = require('./routes/profile');
     //const records = require('./routes/records');
 
     app.use('/battles', battles);
-    //app.use('/newsProfile', newsProfile);
+    app.use('/eqZones', eqZones);
     //app.use('/records', records);
     app.set('port', 3000);                                          //sets express port to use same as server
     

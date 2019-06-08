@@ -1,10 +1,23 @@
 {
+    "eqUrls":{
+        "zones": "https://wiki.project1999.com/Zones",
+        "quests": [
+            "https://wiki.project1999.com/index.php?title=Category:Quests&pageuntil=Erud%27s+Tonic+Quest#mw-pages",
+            "https://wiki.project1999.com/index.php?title=Category:Quests&pagefrom=Erud%27s+Tonic+Quest#mw-pages",
+            "https://wiki.project1999.com/index.php?title=Category:Quests&pagefrom=Monk+Headband+Quests#mw-pages",
+            "https://wiki.project1999.com/index.php?title=Category:Quests&pagefrom=Spiderling+Silks#mw-pages",
+            "https://wiki.project1999.com/index.php?title=Category:Quests&pagefrom=Yegek%27s+Test%2C+Part+2#mw-pages"
+        ],
+        "npcs": [],
+        "equipment": []
+    },
     "mongo": {
         "hostname": "localhost",
         "port": 27017,
         "db": "eq-log-parse",
         "collections": [
-            "battles"
+            "battles",
+            "eqZone"
         ]
     },
     "timeouts": {

@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const BattleCrudServiceMongo = require('../lib/service/crud/mongo/BattleCrudServiceMongo');
-const EqLogFileParser = require('../lib/service/parser/EqLogFileParser');
-const ErrorMessageFactory = require("../lib/errors/ErrorFactory");
 const logger = require('../config/logger');
+const EqZoneService = require('../lib/service/EqZoneService');
+const ErrorMessageFactory = require("../lib/errors/ErrorFactory");
 
 //express setting the route path information and what function will be called
-router.get('/all', getAllBattleRecords);
+router.get('/all', getAllZones);
 
-router.get('/parseFiles', parseBattleFiles); // to be automated
+router.get('/parseZones', parseEqZones); // to be automated
 
-function getAllBattleRecords(req, res, next){                                         //node contains the request object, response object, and the next in chain
-    BattleCrudServiceMongo.findAll()
+function getAllZones(req, res, next){                                         //node contains the request object, response object, and the next in chain
+    EqZoneCrudServiceMongo.findAll()
         .then(function success(results){
             res.send(results);                                                  //node sending response object
         })
@@ -20,8 +19,8 @@ function getAllBattleRecords(req, res, next){                                   
         });
 }
 
-function parseBattleFiles(req, res, next){
-    EqLogFileParser.parse()
+function parseEqZones(req, res, next){
+    EqZoneService.parseZones()
         .then(function success(results){
             res.send(results);
         })
@@ -48,4 +47,4 @@ function handleErrors(err, res){
     res.status(statusCode).send(message);
 }
 
-module.exports = router;                       
+module.exports = router;   
