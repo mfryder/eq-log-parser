@@ -1,5 +1,6 @@
 {
     "eqUrls":{
+        "base": "https://wiki.project1999.com",
         "zones": "https://wiki.project1999.com/Zones",
         "quests": [
             "https://wiki.project1999.com/index.php?title=Category:Quests&pageuntil=Erud%27s+Tonic+Quest#mw-pages",
@@ -11,6 +12,15 @@
         "npcs": [],
         "equipment": []
     },
+    "junkText":[
+        "\n",
+        "\t",
+        "\n\t\t",
+        "\n\t",
+        "\n\n",
+        ", ",
+        " "
+    ],
     "mongo": {
         "hostname": "localhost",
         "port": 27017,

@@ -10,7 +10,7 @@ router.get('/all', getAllZones);
 router.get('/parseZones', parseEqZones); // to be automated
 
 function getAllZones(req, res, next){                                         //node contains the request object, response object, and the next in chain
-    EqZoneCrudServiceMongo.findAll()
+    EqZoneService.findAllZones()
         .then(function success(results){
             res.send(results);                                                  //node sending response object
         })

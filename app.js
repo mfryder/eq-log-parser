@@ -15,16 +15,17 @@ const bodyParser = require('body-parser');              //module to allow json b
 const http = require('http');                           //node specific module (used for http based module services)
 const config = require('config');                       //configuartion module. Allows for adding in properties in json format. Can have overrides (third party)
 const mongoose = require('mongoose');                   //mongo module for handling connections with mongo server (third party)
+const mongoDb = require('./config/mongoDb');
 
 const app = express();                                  
 //const socketServer = require("./lib/socket/socketServer");   
 
-mongoose.connect('mongodb://'+ config.get('mongo.hostname') + ':'+config.get('mongo.port')+ '/' + config.get('mongo.db'));  //mongoose
-let db = mongoose.connection;                                          //links in connection with mongo
-db.on('error', function(err){
+/*mongoose.connect('mongodb://'+ config.get('mongo.hostname') + ':'+config.get('mongo.port')+ '/' + config.get('mongo.db'));  //mongoose
+let db = mongoose.connection;                                          //links in connection with mongo*/
+mongoDb.on('error', function(err){
     logger.error(err);
 });
-db.once('open', function() {                                    
+mongoDb.once('open', function() {                                    
     logger.info("Connection to Mongo has been opened");
     const mongoModels = require('./lib/data/mongo/models');    
     mongoModels.initialize();                                         //initializes all mongo models with their schemas
