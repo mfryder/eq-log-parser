@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const logger = require('../config/logger');
-const EqZoneService = require('../lib/service/EqZoneService');
+const EqQuestService = require('../lib/service/EqQuestService');
 const ErrorMessageFactory = require("../lib/errors/ErrorFactory");
 
 //express setting the route path information and what function will be called
@@ -10,7 +10,7 @@ router.get('/all', getAll);
 router.get('/parse', parse); // to be automated
 
 function getAll(req, res, next){                                         //node contains the request object, response object, and the next in chain
-    EqZoneService.findAll()
+    EqQuestService.findAll()
         .then(function success(results){
             res.send(results);                                                  //node sending response object
         })
@@ -20,7 +20,7 @@ function getAll(req, res, next){                                         //node 
 }
 
 function parse(req, res, next){
-    EqZoneService.parse()
+    EqQuestService.parse()
         .then(function success(results){
             res.send(results);
         })

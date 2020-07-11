@@ -27,7 +27,8 @@
         "db": "eq-log-parse",
         "collections": [
             "battles",
-            "eqZone"
+            "eqZone",
+            "eqQuest"
         ]
     },
     "timeouts": {
